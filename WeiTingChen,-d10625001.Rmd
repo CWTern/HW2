@@ -1,0 +1,32 @@
+---
+title: "1019HW"
+author: "CWT"
+date: "2021/10/25"
+output: html_document
+---
+
+```
+#create the data frame
+before_diet <- c(104, 95, 87, 77, 112)
+after_diet <- c(96, 91, 81, 75, 118)
+BUBBLE_1<- data.frame(before_diet, after_diet)
+rownames(BUBBLE_1) <- c('subject_1', 'subject_2', 'subject_3', 'subject_4', 'subject_5')
+```
+
+
+
+```
+#before_diet and after_diet
+library(tidyr)
+BEFORE_AFTER <- BUBBLE_1 %>%
+  pivot_longer(before_diet:after_diet, values_to = 'weight', names_to = 'time')
+
+
+```
+
+```
+#BUBBLE_DIET
+weight_loss <- (bubble_exp$after_diet - bubble_exp$before_diet) / bubble_exp$before_diet * 100
+BUBBLE_DIET <- data.frame(subject,weight_loss)
+
+```
